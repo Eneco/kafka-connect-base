@@ -1,0 +1,191 @@
+[
+  {
+  "name": "FailedRequest",
+  "result": 1,
+  "worker_id": "1.2.3.4:8083",
+  "status": null
+  },
+  {
+  "name": "ErrorCode",
+  "result": 1,
+  "worker_id": "1.2.3.4:8083",
+  "status": {
+    "error_code":404,
+    "message":"No status found for connector hdfs-sink-connector"}
+  },
+  {
+    "name": "NoFailures",
+    "result": 0,
+    "worker_id": "1.2.3.4:8083",
+    "status": {
+      "name": "hdfs-sink-connector",
+      "connector": {
+        "state": "RUNNING",
+        "worker_id": "1.2.3.4:8083"
+      },
+      "tasks": [
+        {
+          "id": 0,
+          "state": "RUNNING",
+          "worker_id": "1.2.3.4:8083"
+        },
+        {
+          "id": 1,
+          "state": "RUNNING",
+          "worker_id": "1.2.3.5:8083"
+        },
+        {
+          "id": 2,
+          "state": "RUNNING",
+          "worker_id": "1.2.3.6:8083"
+        }
+      ]
+    }
+  },
+  {
+    "name": "SingleFailureOnThisWorker",
+    "result": 1,
+    "worker_id": "1.2.3.4:8083",
+    "status": {
+      "name": "hdfs-sink-connector",
+      "connector": {
+        "state": "RUNNING",
+        "worker_id": "1.2.3.6:8083"
+      },
+      "tasks": [
+        {
+          "id": 0,
+          "state": "RUNNING",
+          "worker_id": "1.2.3.5:8083"
+        },
+        {
+          "id": 1,
+          "state": "FAILED",
+          "worker_id": "1.2.3.4:8083",
+          "trace": "a.stack.trace\nwith.multiple.lines\nand.an.ip.address 1.2.3.4:8083\njust.to.test\n"
+        }
+      ]
+    }
+  },
+  {
+    "name": "SingleFailureOnOtherWorker",
+    "result": 0,
+    "worker_id": "1.2.3.4:8083",
+    "status": {
+      "name": "hdfs-sink-connector",
+      "connector": {
+        "state": "RUNNING",
+        "worker_id": "1.2.3.4:8083"
+      },
+      "tasks": [
+        {
+          "id": 0,
+          "state": "RUNNING",
+          "worker_id": "1.2.3.5:8083"
+        },
+        {
+          "id": 1,
+          "state": "FAILED",
+          "worker_id": "1.2.3.6:8083",
+          "trace": "a.stack.trace\nwith.multiple.lines\nand.an.ip.address 1.2.3.4:8083\njust.to.test\n"
+        }
+      ]
+    }
+  },
+  {
+    "name": "AllFailedOneOnThisWorker",
+    "result": 1,
+    "worker_id": "1.2.3.4:8083",
+    "status": {
+      "name": "hdfs-sink-connector",
+      "connector": {
+        "state": "FAILED",
+        "worker_id": "1.2.3.4:8083"
+      },
+      "tasks": [
+        {
+          "id": 0,
+          "state": "FAILED",
+          "worker_id": "1.2.3.4:8083",
+          "trace": "a.stack.trace\nwith.multiple.lines\nand.an.ip.address 1.2.3.4:8083\njust.to.test\n"
+        },
+        {
+          "id": 1,
+          "state": "FAILED",
+          "worker_id": "1.2.3.5:8083",
+          "trace": "a.stack.trace\nwith.multiple.lines\nand.an.ip.address 1.2.3.4:8083\njust.to.test\n"
+        },
+        {
+          "id": 2,
+          "state": "FAILED",
+          "worker_id": "1.2.3.6:8083",
+          "trace": "a.stack.trace\nwith.multiple.lines\nand.an.ip.address 1.2.3.4:8083\njust.to.test\n"
+        }
+      ]
+    }
+  },
+  {
+    "name": "AllFailedOnThisWorker",
+    "result": 1,
+    "worker_id": "1.2.3.4:8083",
+    "status": {
+      "name": "hdfs-sink-connector",
+      "connector": {
+        "state": "FAILED",
+        "worker_id": "1.2.3.4:8083"
+      },
+      "tasks": [
+        {
+          "id": 0,
+          "state": "FAILED",
+          "worker_id": "1.2.3.4:8083",
+          "trace": "a.stack.trace\nwith.multiple.lines\nand.an.ip.address 1.2.3.4:8083\njust.to.test\n"
+        },
+        {
+          "id": 1,
+          "state": "FAILED",
+          "worker_id": "1.2.3.4:8083",
+          "trace": "a.stack.trace\nwith.multiple.lines\nand.an.ip.address 1.2.3.4:8083\njust.to.test\n"
+        },
+        {
+          "id": 2,
+          "state": "FAILED",
+          "worker_id": "1.2.3.4:8083",
+          "trace": "a.stack.trace\nwith.multiple.lines\nand.an.ip.address 1.2.3.4:8083\njust.to.test\n"
+        }
+      ]
+    }
+  },
+  {
+    "name": "AllFailedOnOtherWorkers",
+    "result": 0,
+    "worker_id": "1.2.3.4:8083",
+    "status": {
+      "name": "hdfs-sink-connector",
+      "connector": {
+        "state": "FAILED",
+        "worker_id": "1.2.3.5:8083"
+      },
+      "tasks": [
+        {
+          "id": 0,
+          "state": "FAILED",
+          "worker_id": "1.2.3.5:8083",
+          "trace": "a.stack.trace\nwith.multiple.lines\nand.an.ip.address 1.2.3.4:8083\njust.to.test\n"
+        },
+        {
+          "id": 1,
+          "state": "FAILED",
+          "worker_id": "1.2.3.5:8083",
+          "trace": "a.stack.trace\nwith.multiple.lines\nand.an.ip.address 1.2.3.4:8083\njust.to.test\n"
+        },
+        {
+          "id": 2,
+          "state": "FAILED",
+          "worker_id": "1.2.3.6:8083",
+          "trace": "a.stack.trace\nwith.multiple.lines\nand.an.ip.address 1.2.3.4:8083\njust.to.test\n"
+        }
+      ]
+    }
+  }
+]
