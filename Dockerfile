@@ -37,6 +37,7 @@ EXPOSE 9102
 #
 # alternate distributed launch - overwrite classpath
 #
+RUN mkdir -p /usr/local/share/java
 COPY distributed/launch /etc/confluent/docker/launch
 
 #
