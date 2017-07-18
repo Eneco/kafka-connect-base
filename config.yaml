@@ -17,6 +17,14 @@ rules:
       client_id: "$3"
       node_id: "$4"
 
+  # kafka.consumer:type=consumer-fetch-manager-metrics,client-id=topic-partition.([-.w]+)
+  - pattern: "kafka.(\\w+)<type=(.+), client-id=(.+)><>(.+)-([0-9]+)\\.(.+):"
+    name: $2_$6
+    labels:
+      client_id: "$3"
+      topic: $4
+      partition: $5
+
   # kafka.producer:type=producer-metrics,client-id=([-.w]+)
   # kafka.consumer:type=consumer-metrics,client-id=([-.w]+)
   # kafka.consumer:type=consumer-fetch-manager-metrics,client-id=([-.w]+)
